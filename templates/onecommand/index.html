@@ -1,0 +1,210 @@
+ {% load static from staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> DellEMC: OneCommand </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- EMB GOOGLE FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700" rel="stylesheet">
+    <!-- Processed CSS-->
+      <link href= "{%static '/css/onecommand/styles.css' %}"  rel="stylesheet">
+      <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" >
+
+    <link href="{%static '/css/onecommand/multi-select.css' %}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <!-- PAGE HEADER GOES HERE -->
+
+    <header class="clearfix">
+        <div>
+        <figure class="">
+            <img src="{%static 'images/logo2.png'  %}" alt="Dell EMC logo">
+        </figure>
+
+        <h1> One Command</h1>
+        <h2>Run it Once</h2>
+        </div>
+    </header>
+
+    <!-- PAGE NAVIGATION GOES HERE -->
+    <nav class="clearfix">
+        <ul class="clearfix">
+            <li id="active"> <a href=index.html>HOME</a></li>
+            <li> <a href=inventory.html>Inventory</a></li>
+            <li> <a href=about.html>About</a></li>
+            <li> <a href=contact.html>Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- PAGE MAIN GOES HERE -->
+    <main>
+
+    <div id="form-center">
+
+    <form action="/result/" method="post" name="form1">
+        {% csrf_token %}
+    <input type="text" name="command">
+
+
+
+<p>  Select servers from the below list: </p>
+<div>
+  <select id='my-select' name="nasservers" multiple='multiple'>
+<option value='nasegca2'>nasegca2</option>
+<option value='nascrk3'>nascrk3</option>
+<option value='nasishz1'>nasishz1</option>
+<option value='nascncd2'>nascncd2</option>
+<option value='nassisi1'>nassisi1</option>
+<option value='nasinba1'>nasinba1</option>
+<option value='nasbavdi1'>nasbavdi1</option>
+<option value='nasgefr1'>nasgefr1</option>
+<option value='nasjpto1'>nasjpto1</option>
+<option value='nasukbr1'>nasukbr1</option>
+<option value='nasfrpa1'>nasfrpa1</option>
+<option value='nascnsh1'>nascnsh1</option>
+<option value='nascnbe1'>nascnbe1</option>
+<option value='nasrusp1'>nasrusp1</option>
+<option value='nasausy1'>nasausy1</option>
+
+<option value='nashapp2'>nashapp2</option>
+<option value='nashvdi2'>nashvdi2</option>
+<option value='nasheng1'>nasheng1</option>
+<option value='nashpra1'>nashpra1</option>
+<option value='nasheng2'>nasheng2</option>
+<option value='nashsap1'>nashsap1</option>
+<option value='nashprd1'>nashprd1</option>
+<option value='nashcrm1'>nashcrm1</option>
+<option value='nashsap2'>nashsap2</option>
+<option value='nasheng3'>nasheng3</option>
+<option value='nashepas1'>nashepas1</option>
+<option value='enashsap1'>enashsap1</option>
+<option value='nask'>nask</option>
+<option value='nasl'>nasl</option>
+<option value='nash'>nash</option>
+<option value='corpnash1'>corpnash1</option>
+<option value='corpnasapp1'>corpnasapp1</option>
+<option value='nashsap1'>nashsap1</option>
+
+<option value='nasdprb1'>nasdprb1</option>
+<option value='nasdprd1'>nasdprd1</option>
+<option value='nasdprc1'>nasdprc1</option>
+<option value='nasdpra1'>nasdpra1</option>
+<option value='nasdsap1'>nasdsap1</option>
+<option value='nasdeng2'>nasdeng2</option>
+<option value='nasdcrm1'>nasdcrm1</option>
+<option value='nasdvdi'>nasdvdi</option>
+<option value='nasdeng2'>nasdeng2</option>
+<option value='nasdsas1'>nasdsas1</option>
+<option value='nasdepas1'>nasdepas1</option>
+<option value='nasdprb2'>nasdprb2</option>
+<option value='nasdeng3'>nasdeng3</option>
+<option value='enasdsap1'>enasdsap1</option>
+  </select>
+</div>
+
+<input type="submit" value="submit">
+
+ </form>
+
+<!--
+        <div id="select-buttons" style="text-decoration: none;">
+<a style="border: 2px solid aquamarine; background-color: aquamarine; display: inline; padding: 10px; margin: 10px; cursor: default;" href='#' id='select-all'>select all</a>
+<a style="border: 1px solid mediumseagreen; background-color: aquamarine; display: inline; padding: 10px; margin-bottom: 10px;" href='#' id='deselect-all'>deselect all</a>
+<a style="border: 1px solid mediumseagreen; background-color: aquamarine; display: inline; padding: 10px; margin-bottom: 10px;" href='#' id='international'>[International NAS]</a>
+<a style="border: 1px solid mediumseagreen; background-color: aquamarine; display: inline; padding: 10px; margin-bottom: 10px;" href='#' id='hop'>[Hopkinton NAS]</a>
+<a style="border: 1px solid mediumseagreen; background-color: aquamarine; display: inline; padding: 10px; margin-bottom: 10px;" href='#' id='durham'>[Durham NAS]</a>
+</div>
+ -->
+</div>
+
+
+    </main>
+
+    <!-- PAGE FOOTER GOES HERE -->
+
+     <footer>
+
+        <figure class="">
+            <img src="{%static '/images/logo2.png' %}" alt="Dell EMC logo">
+        </figure>
+        <p> For Dell EMC Internal NAS Use Only</p>
+        <p>&copy;2019 Dell Technologies or it's subsidiaries</p>
+
+    </footer>
+  <!-- ends -->
+  <!-- jQuery -->
+
+  <script src="{%static 'js/multiselect.js' %}" type="text/javascript"></script>
+  <script >
+  // run #my-select options
+  $('#my-select').multiSelect();
+  $('#select-all').click(function(){
+  $('#my-select').multiSelect('select_all');
+  return false;
+});
+  $('#deselect-all').click(function(){
+  $('#my-select').multiSelect('deselect_all');
+  return false;
+  });
+$('#international').click(function(){
+  $('#my-select').multiSelect('select', ['nasegca2', 'nascrk3', 'nasishz1', 'nascncd2', 'nassisi1', 'nasinba1','nasbavdi1', 'nasgefr1', 'nasjpto1', 'nasukbr1', 'nasfrpa1', 'nascnbe1', 'nasrusp1','nascnsh1','nasausy1']);
+  return false;
+});
+
+      $('#hop').click(function(){
+  $('#my-select').multiSelect('select', [ 'nashapp2','nashvdi2','nasheng1', 'nashpra1', 'nasheng2','nashsap1', 'nashprd1','nashcrm1', 'nashsap2','nasheng3','nashepas1','enashsap1','nask','nasl','corpnash1','corpnasapp1','nash','nashapp2','nashsap1']);
+  return false;
+});
+
+$('#durham').click(function(){
+  $('#my-select').multiSelect('select', ['nasdprb1', 'nasdprd1',  'nasdprc1', 'nasdpra1', 'nasdsap1','nasdeng2','nasdcrm1', 'nasdvdi','nasdeng2','nasdsas1', 'nasdepas1', 'nasdprb2','nasdeng3','enasdsap1',]);
+  return false;
+});
+
+$('#my-select').multiSelect({
+  selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"12\"'>",
+  selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"4\"'>",
+  afterInit: function(ms){
+    var that = this,
+        $selectableSearch = that.$selectableUl.prev(),
+        $selectionSearch = that.$selectionUl.prev(),
+        selectableSearchString = '#'+that.$container.attr('id')+' .ms-elem-selectable:not(.ms-selected)',
+        selectionSearchString = '#'+that.$container.attr('id')+' .ms-elem-selection.ms-selected';
+
+    that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+    .on('keydown', function(e){
+      if (e.which === 40){
+        that.$selectableUl.focus();
+        return false;
+      }
+    });
+
+    that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+    .on('keydown', function(e){
+      if (e.which == 40){
+        that.$selectionUl.focus();
+        return false;
+      }
+    });
+  },
+  afterSelect: function(){
+    this.qs1.cache();
+    this.qs2.cache();
+  },
+  afterDeselect: function(){
+    this.qs1.cache();
+    this.qs2.cache();
+  }
+});
+
+  </script>
+
+
+</body>
+</html>
