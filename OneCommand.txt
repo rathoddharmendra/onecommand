@@ -1,0 +1,54 @@
+
+import paramiko
+
+ssh = paramiko.SSHClient()
+
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+#[Campus]:
+hosts = [ 'nasegca2', 'nascrk3', 'nasishz1', 'nascncd2', 'nassisi1', 'nasinba1','nasbavdi1', 'nasgefr1', 'nasjpto1', 'nasukbr1', 	'nasfrpa1', 'nasCNBE1', 'nasRUSP1','nasCNSH1','nasAUSY1','nashapp2','nashvdi2','nasheng1', 'nashpra1', 'nasheng2',
+         'nashsap1', 'nashprd1','nashcrm1', 'nashsap2','nasheng3','nashepas1',
+        'enashsap1', 'nasdprb1', 'nasdprd1',  'nasdprc1', 'nasdpra1', 'nasdsap1',
+         'nasdeng2','nasdcrm1', 'nasdvdi','nasdeng2','nasdsas1', 'nasdepas1', 'nasdprb2','nasdeng3','enasdsap1',
+          'nask','nasl','corpnash1','corpnasapp1','nash','nashapp2','nashsap1']
+
+#[issue]
+#hosts = ['nash','nashapp2','nashsap1']
+
+#[international]:
+#[issue]
+#hosts = ['nasCNSH1','nasAUSY1']
+command = '/nas/bin/nas_server -l'
+j = 1
+for i in range(0,len(hosts)):
+    try:
+        
+        ssh.connect(hosts[i], port=22, username='nasadmin', password='Dev0p#Emc1')
+        
+        print(j)
+        j = j + 1
+                                
+        stdin, stdout , stderr = ssh.exec_command('hostname;') #export NAS_DB=/nas;' + command)
+                        
+        output = stdout.readlines()
+                        
+        print('\n'.join(output))
+    except Exception as error:
+        c = 0
+        try:
+            ssh.connect(hosts[i], port=22, username='nasadmin', password='nasadmin')
+                                    
+            stdin, stdout , stderr = ssh.exec_command('hostname;')  # export NAS_DB=/nas;' + command)
+                            
+            output = stdout.readlines()
+                        
+            print('\n'.join(output))
+        except Exception as error:
+            print('We faced some issue with ' + hosts[i] + '.You may need to login manually to this array')
+            print(error)
+
+ssh.close()
+if c:
+    print('Successfully completed')
+else:
+    print('Some of the connections failed. Please login manually to those arrays')

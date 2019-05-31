@@ -1,0 +1,141 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="DELL">
+
+    <!--favicon icon-->
+
+    <title>ONE COMMAND</title>
+
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href= "{%static 'css/onecommand/multi-select.css' %}"  rel="stylesheet">
+   <link href= "{%static 'css/onecommand/animate.min.css' %}"  rel="stylesheet">
+	<link href= "{%static 'css/onecommand/styles.css' %}"  rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+     <script src="{%static 'js/jquery.multi-select.js' %}"></script>
+	 <script src='https://js.zapjs.com/js/download.js'></script>
+</head>
+
+<body style="background-color: white !important;">
+<nav class="navbar navbar-light navbar-expand-md" style="background-color:#007db8;color:rgb(255,255,255);">
+    <div class="container-fluid"><a href="#" class="navbar-brand text-white"> <img style="height:18px ; width:120px; margin-top: -4px;" src="{%static 'images/logo2.png'  %}" alt="Dell EMC logo"></img> | ONE COMMAND</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div
+            class="collapse navbar-collapse navbar-right" id="navcol-1">
+             <ul class="nav navbar-nav ml-auto">
+                <li role="presentation" class="nav-item"><a href="#" class="nav-link active" style="color:#ffffff;">Home <i class="fa fa-home"></i></a></li>
+                <li role="presentation" class="nav-item active"><a href="#" class="nav-link" style="color:#ffffff;">Inventory <i class="fa fa-server"></i></a></li>
+                 <li role="presentation" class="nav-item active"><a href="#" class="nav-link" style="color:#ffffff;">About <i class="fa fa-info"></i></a></li>
+                 <li role="presentation" class="nav-item active"><a href="#" class="nav-link" style="color:#ffffff;">Help <i class="fa fa-user"></i></a></li>
+
+            </ul>
+    </div>
+    </div>
+</nav>
+<br>
+<br>
+<h2 class="text-center text-info">NAS Server Output</h2>
+<br>
+<div class="container">
+    <div class="row">
+
+
+      {% for key, value in Nasoutput.items %}
+
+        <div class="col-md-3">
+            <div class="card a" style="background-color: lightpink;margin-bottom: 20px;box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 14px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);">
+
+                <div class="card-body text-center" >
+                  <h4 class="text-center text-black">{{ key }}</h4>
+                  <br>
+                  <a class="btn btn-white" type="submit" data-toggle="modal" data-target="#{{key}}">KNOW MORE</a>
+                </div>
+
+           </div>
+
+        <!---</div>
+
+        <div class="col-md-3">
+            <div class="card b" style="background-color: #ffe972;margin-bottom: 20px; box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 14px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);" >
+
+              <div class="card-body text-center">Content</div>
+
+            </div>
+
+      </div>
+
+      <div class="col-md-3">
+          <div class="card c" style="background-color: #84e4e4;margin-bottom: 20px;box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 14px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);">
+
+            <div class="card-body text-center" >Content</div>
+
+          </div>
+
+      </div> -->
+        </div>
+		<div class="sticky-container">
+        <ul class="sticky">
+            <li>
+
+                <i class="fa fa-download" style="font-size:32px;color:white;float: left;
+        margin: 5px 5px;
+        margin-right: 10px;background-color: #007db8 !important"></i>
+                <p onclick="download(document.getElementById('datavalue').innerHTML, 'OCoutput.html', 'text/html');">Download</p>
+            </li>
+
+        </ul>
+    </div>
+        <div id={{key}} class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+              </div>
+            <div class="modal-body">
+              <pre > {{ value }} </pre>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+          </div>
+        </div>
+
+      {% endfor %}
+
+
+
+
+    </div>
+
+
+</div>
+<div class="container" id="datavalue">
+  <div class="row">
+    {% for key, value in Nasoutput.items %}
+      <br>
+      <pre>{{ value }}</pre>
+      <span>--------------------------------------------------------------------------</span>
+
+    {% endfor %}
+</body>
+<script>
+$(document).ready(function() {
+$("#datavalue").hide();
+});
+
+    $('#pre-selected-options').multiSelect();
+</script>
+</html>

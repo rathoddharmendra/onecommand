@@ -1,33 +1,28 @@
- {% load static from staticfiles %}
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title> DellEMC: OneCommand </title>
-	<meta http-equiv="refresh">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- EMB GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,700" rel="stylesheet">
     <!-- Processed CSS-->
-      <link href= "{%static '/css/onecommand/styles.css' %}"  rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
       <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" >
-
-    <link href="{%static '/css/onecommand/multi-select.css' %}" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
-
+  
+    <link href="scripts/multi-select.css" rel="stylesheet">
+ 
 </head>
 <body>
 
     <!-- PAGE HEADER GOES HERE -->
-
+    
     <header class="clearfix">
         <div>
         <figure class="">
-            <img src="{%static 'images/logo2.png'  %}" alt="Dell EMC logo">
+            <img src="images/logo1.jpg" alt="Dell EMC logo">
         </figure>
-
+        
         <h1> One Command</h1>
         <h2>Run it Once</h2>
         </div>
@@ -39,109 +34,111 @@
             <li id="active"> <a href=index.html>HOME</a></li>
             <li> <a href=inventory.html>Inventory</a></li>
             <li> <a href=about.html>About</a></li>
-            <li> <a href=contact.html>Contact</a></li>
+            <li> <a href=contact.html>Contact</a></li>            
         </ul>
     </nav>
-
+    
     <!-- PAGE MAIN GOES HERE -->
     <main>
 
     <div id="form-center">
-
-    <form action="/result/" method="post" name="form1">
-        {% csrf_token %}
+        
+    <form action="action.php" method="post"> 
+    Command :
     <input type="text" name="command">
+        
 
 
-
-<p>  Select servers from the below list: </p>
+<p>  Select servers from the below list: </p>    
 <div>
-  <select id='my-select' name="nasservers" multiple='multiple'>
-<option value='10.28.176.30'>nasegca2</option>
-<option value='10.73.243.131'>nascrk3</option>
-<option value='10.76.84.16'>nasishz1</option>
-<option value='10.35.79.42'>nascncd2</option>
-<option value='10.44.2.105'>nassisi1</option>
-<option value='10.77.142.55'>nasinba1</option>
-<option value='10.30.176.55'>nasbavdi1</option>
-<option value='10.70.52.20'>nasgefr1</option>
-<option value='10.32.58.208'>nasjpto1</option>
-<option value='152.62.254.13'>nasukbr1</option>
-<option value='10.22.222.28'>nasfrpa1</option>
-<option value='10.84.80.13'>nascnsh1</option>
-<option value='10.32.87.140'>nascnbe1</option>
-<option value='10.77.0.13'>nasrusp1</option>
-<option value='10.35.254.11'>nasausy1</option>
+  <select id='my-select' multiple='multiple'>
+<option value='nasegca2'>nasegca2</option>
+<option value='nascrk3'>nascrk3</option>
+<option value='nasishz1'>nasishz1</option>
+<option value='nascncd2'>nascncd2</option>
+<option value='nassisi1'>nassisi1</option>
+<option value='nasinba1'>nasinba1</option>
+<option value='nasbavdi1'>nasbavdi1</option>
+<option value='nasgefr1'>nasgefr1</option>
+<option value='nasjpto1'>nasjpto1</option>
+<option value='nasukbr1'>nasukbr1</option>
+<option value='nasfrpa1'>nasfrpa1</option>
+<option value='nascnsh1'>nascnsh1</option>
+<option value='nascnbe1'>nascnbe1</option>
+<option value='nasrusp1'>nasrusp1</option>
+<option value='nasausy1'>nasausy1</option>
+      
+<option value='nashapp2'>nashapp2</option>
+<option value='nashvdi2'>nashvdi2</option>
+<option value='nasheng1'>nasheng1</option>
+<option value='nashpra1'>nashpra1</option>
+<option value='nasheng2'>nasheng2</option>
+<option value='nashsap1'>nashsap1</option>
+<option value='nashprd1'>nashprd1</option>
+<option value='nashcrm1'>nashcrm1</option>
+<option value='nashsap2'>nashsap2</option>
+<option value='nasheng3'>nasheng3</option>
+<option value='nashepas1'>nashepas1</option>
+<option value='enashsap1'>enashsap1</option>
+<option value='nask'>nask</option>
+<option value='nasl'>nasl</option>
+<option value='nash'>nash</option>
+<option value='corpnash1'>corpnash1</option>
+<option value='corpnasapp1'>corpnasapp1</option>
+<option value='nashsap1'>nashsap1</option>
 
-<option value='10.254.148.230'>nashapp2</option>
-<option value='10.254.230.110'>nashvdi2</option>
-<option value='10.254.100.27'>nasheng1</option>
-<option value='10.254.92.120'>nashpra1</option>
-<option value='10.254.234.143'>nasheng2</option>
-<option value='10.254.230.153'>nashsap1</option>
-<option value='10.253.8.28'>nashprd1</option>
-<option value='10.254.230.159'>nashcrm1</option>
-<option value='10.254.230.153'>nashsap1</option>
-<option value='10.254.227.116'>nasheng3</option>
-<option value='10.254.238.92'>nashepas1</option>
-<option value='10.252.199.100'>enashsap1</option>
-<option value='10.254.148.64'>nask</option>
-<option value='10.254.148.57'>nasl</option>
-<option value='10.254.148.27'>nash</option>
-<option value='10.254.148.200'>corpnash1</option>
-<option value='10.254.148.180'>corpnasapp1</option>
-<option value='10.254.230.153'>nashsap1</option>
-
-<option value='10.104.127.65'>nasdprb1</option>
-<option value='10.104.127.57'>nasdprd1</option>
-<option value='10.104.127.22'>nasdprc1</option>
-<option value='10.104.127.26'>nasdpra1</option>
-<option value='10.104.127.61'>nasdsap1</option>
-<option value='10.104.127.86'>nasdeng2</option>
-<option value='10.104.127.84'>nasdcrm1</option>
-<option value='10.104.127.107'>nasdvdi1</option>
-<option value='10.104.127.86'>nasdeng2</option>
-<option value='10.104.58.27'>nasdsas1</option>
-<option value='10.104.58.23'>nasdepas1</option>
-<option value='10.104.54.104'>nasdprb2</option>
-<option value='10.104.58.41'>nasdeng3</option>
-<option value='10.104.75.100'>enasdsap1</option>
+<option value='nasdprb1'>nasdprb1</option>
+<option value='nasdprd1'>nasdprd1</option>
+<option value='nasdprc1'>nasdprc1</option>
+<option value='nasdpra1'>nasdpra1</option>
+<option value='nasdsap1'>nasdsap1</option>
+<option value='nasdeng2'>nasdeng2</option>
+<option value='nasdcrm1'>nasdcrm1</option>
+<option value='nasdvdi'>nasdvdi</option>
+<option value='nasdeng2'>nasdeng2</option>
+<option value='nasdsas1'>nasdsas1</option>
+<option value='nasdepas1'>nasdepas1</option>
+<option value='nasdprb2'>nasdprb2</option>
+<option value='nasdeng3'>nasdeng3</option>
+<option value='enasdsap1'>enasdsap1</option>
   </select>
 </div>
-
+            
 <input type="submit" value="submit">
-
+       
  </form>
 
-
+<!--
         <div id="select-buttons" style="text-decoration: none;">
 <a style="border: 2px solid aquamarine; background-color: aquamarine; display: inline; padding: 10px; margin: 10px; cursor: default;" href='#' id='select-all'>select all</a>
 <a style="border: 1px solid mediumseagreen; background-color: aquamarine; display: inline; padding: 10px; margin-bottom: 10px;" href='#' id='deselect-all'>deselect all</a>
 <a style="border: 1px solid mediumseagreen; background-color: aquamarine; display: inline; padding: 10px; margin-bottom: 10px;" href='#' id='international'>[International NAS]</a>
 <a style="border: 1px solid mediumseagreen; background-color: aquamarine; display: inline; padding: 10px; margin-bottom: 10px;" href='#' id='hop'>[Hopkinton NAS]</a>
-<a style="border: 1px solid mediumseagreen; background-color: aquamarine; display: inline; padding: 10px; margin-bottom: 10px;" href='#' id='durham'>[Durham NAS]</a>
+<a style="border: 1px solid mediumseagreen; background-color: aquamarine; display: inline; padding: 10px; margin-bottom: 10px;" href='#' id='durham'>[Durham NAS]</a>    
+</div>
+ -->       
 </div>
 
-</div>
-
-
+        
     </main>
-
-    <!-- PAGE FOOTER GOES HERE -->
-
+    
+    <!-- PAGE FOOTER GOES HERE -->   
+    
      <footer>
-
+         
         <figure class="">
-            <img src="{%static '/images/logo2.png' %}" alt="Dell EMC logo">
+            <img src="images/logo2.png" alt="Dell EMC logo">
         </figure>
         <p> For Dell EMC Internal NAS Use Only</p>
-        <p>&copy;2019 Dell Technologies or it's subsidiaries</p>
-
+        <p>&copy;2019 Dell Technologies or it's subsidiaries</p>  
+        
     </footer>
   <!-- ends -->
   <!-- jQuery -->
-
-  <script src="{%static 'js/multiselect.js' %}" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+  <script src="scripts/jquery.multi-select.js" type="text/javascript"></script>
   <script >
   // run #my-select options
   $('#my-select').multiSelect();
@@ -162,12 +159,12 @@ $('#international').click(function(){
   $('#my-select').multiSelect('select', [ 'nashapp2','nashvdi2','nasheng1', 'nashpra1', 'nasheng2','nashsap1', 'nashprd1','nashcrm1', 'nashsap2','nasheng3','nashepas1','enashsap1','nask','nasl','corpnash1','corpnasapp1','nash','nashapp2','nashsap1']);
   return false;
 });
-
+      
 $('#durham').click(function(){
   $('#my-select').multiSelect('select', ['nasdprb1', 'nasdprd1',  'nasdprc1', 'nasdpra1', 'nasdsap1','nasdeng2','nasdcrm1', 'nasdvdi','nasdeng2','nasdsas1', 'nasdepas1', 'nasdprb2','nasdeng3','enasdsap1',]);
   return false;
 });
-
+  
 $('#my-select').multiSelect({
   selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"12\"'>",
   selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"4\"'>",
@@ -205,7 +202,7 @@ $('#my-select').multiSelect({
 });
 
   </script>
-
-
-</body>
+    
+    
+</body> 
 </html>

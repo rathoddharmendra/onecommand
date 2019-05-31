@@ -1,8 +1,8 @@
-/*
+/* 
 html5doctor.com Reset Stylesheet
 v1.6.1
 Last Updated: 2010-09-17
-Author: Richard Clark - http://richclarkdesign.com
+Author: Richard Clark - http://richclarkdesign.com 
 Twitter: @rich_clark
 */
 html, body, div, span, object, iframe,
@@ -191,36 +191,3 @@ footer {
   /* MEDIUM CSS PAGE */ }
 @media only screen and (min-width: 1140px) {
   /* LARGE CSS PAGE */ }
-  .sidenav {
-    width: 130px;
-    position: fixed;
-    z-index: 1;
-    top: 20px;
-    left: 10px;
-    background: #eee;
-    overflow-x: hidden;
-    padding: 8px 0;
-  }
-
-  .sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #2196F3;
-    display: block;
-  }
-
-  .sidenav a:hover {
-    color: #064579;
-  }
-
-  .main {
-    margin-left: 140px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-  }
-
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
