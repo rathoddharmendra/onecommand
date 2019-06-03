@@ -9,7 +9,7 @@ import pdb
 
 # Create your views here.
 
-def landing(request, template_name='onecommand/output.html'):
+def landing(request, template_name='onecommand/index.html'):
 
     return render(request, template_name)
 
