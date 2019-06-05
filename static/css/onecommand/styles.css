@@ -60,3 +60,11 @@ body{
 		z-index: 999999;
 
 	}
+    
+#spinner{
+    position: absoulte;
+    top: 50%;
+    left: 50%;
+    size: 20px;
+    image-resolution: from-image;
+}

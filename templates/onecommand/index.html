@@ -22,12 +22,15 @@
 	<link href= "{%static 'css/onecommand/styles.css' %}"  rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="{%static 'js/jquery.multi-select.js' %}"></script>
+    <script>
+    $( "#my-select" ).remove();
+    </script>
 </head>
 
 <body>
 <!-- nav bar -->
 <nav class="navbar navbar-light navbar-expand-md" style="background-color:#007db8;color:rgb(255,255,255);">
-    <div class="container-fluid"><a href="#" class="navbar-brand text-white"> <img style="height:18px ; width:120px; margin-top: -4px;" src="{%static 'images/logo2.png'  %}" alt="Dell EMC logo"> | ONE COMMAND</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container-fluid"><a href="index.html" class="navbar-brand text-white"> <img style="height:18px ; width:120px; margin-top: -4px;" src="{%static 'images/logo2.png'  %}" alt="Dell EMC logo"> | ONE COMMAND</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div
             class="collapse navbar-collapse navbar-right" id="navcol-1">
              <ul class="nav navbar-nav ml-auto">
@@ -56,7 +59,7 @@
         <a id="international">International |</a>
         <a id="durham">Durham</a>
       </div>
-      <br>
+      <br/>
         <div class="col-md-12">
             <!--Multi-select form -->
             <form action="/result/" method="post" name="form1">
@@ -85,16 +88,17 @@
                     <option value='10.254.92.120'>nashpra1</option>
                     <option value='10.254.234.143'>nasheng2</option>
                     <option value='10.254.230.153'>nashsap1</option>
+                    <option value='10.254.234.243'>nashpra2</option>
                     <option value='10.253.8.28'>nashprd1</option>
                     <option value='10.254.230.159'>nashcrm1</option>
-                    <!-- <option value='10.254.230.153'>nashsap1</option> -->
+                    <option value='10.254.230.153'>nashsap1</option>
                     <option value='10.254.227.116'>nasheng3</option>
-                    <option value='10.254.238.92'>nashepas1</option>
+                    <!-- <option value='10.254.238.92'>nashepas1</option> -->
                     <option value='10.252.199.100'>enashsap1</option>
                     <option value='10.254.148.64'>nask</option>
                     <option value='10.254.148.57'>nasl</option>
                     <option value='10.254.148.27'>nash</option>
-                    <option value='10.254.148.200'>corpnash1</option>
+                    <!--<option value='10.254.148.200'>corpnash1</option>-->
                     <option value='10.254.148.180'>corpnasapp1</option>
 
 
@@ -102,21 +106,22 @@
                     <option value='10.104.127.57'>nasdprd1</option>
                     <option value='10.104.127.22'>nasdprc1</option>
                     <option value='10.104.127.26'>nasdpra1</option>
+                    <option value='10.104.41.114'>nasdpra2</option>
                     <option value='10.104.127.61'>nasdsap1</option>
                     <option value='10.104.127.86'>nasdeng2</option>
                     <option value='10.104.127.84'>nasdcrm1</option>
-                    <!-- <option value='10.104.127.107'>nasdvdi1</option> -->
+                    <option value='10.104.127.107'>nasdvdi1</option> 
                     <option value='10.104.127.86'>nasdeng2</option>
                     <option value='10.104.58.27'>nasdsas1</option>
                     <!-- <option value='10.104.58.23'>nasdepas1</option> -->
                     <option value='10.104.54.104'>nasdprb2</option>
                     <option value='10.104.58.41'>nasdeng3</option>
                     <option value='10.104.75.100'>enasdsap1</option>
-                      </select>
+                </select>
 
         </div>
-        <br>
-        <br>
+        <br/>
+        <br/>
 
 
         <div class="row">
@@ -137,17 +142,26 @@
             </form>
 
         </div>
-        </div>
-    </div>
+        </div> <!-- div-row --> 
+    </div> <!--Form Container ends here -->
     <div class="col-md-3"></div>
-</div> <!--Form Container ends here -->
+</div> 
+ 
+
+<div class="spinner" style="display: none;">
+    <img id="img-spinner" src="{%static 'images/spinner2.gif'  %}" alt="Loading"/>
+</div>
+   
 
 </div>
 
 <div class="footer col text-center text-white py-1" style="background-color:#007db8; position: fixed; left: 0; bottom: 0;"> DellEMC Corporation &#174; </div>
 
 </body>
+
+
 <script>
+
 
   // run #my-select options
   $('#my-select').multiSelect();
@@ -160,18 +174,18 @@
   return false;
   });
 $('#international').click(function(){
-  $('#my-select').multiSelect('select', ['10.28.176.30', '10.73.243.131', '10.76.84.16', '10.35.79.42', '10.44.2.105', '10.77.142.55','10.30.176.55', '10.70.52.20', '10.32.58.208', '152.62.254.13', '10.22.222.2', '10.32.87.140', '10.77.0.13','nascnsh1','nasausy1']);
+  $('#my-select').multiSelect('select', ['10.28.176.30', '10.73.243.131', '10.76.84.16', '10.35.79.42', '10.44.2.105', '10.77.142.55','10.30.176.55', '10.70.52.20', '10.32.58.208', '152.62.254.13', '10.22.222.28', '10.32.87.140', '10.77.0.13','nascnsh1','nasausy1']);
   return false;
 });
 
 
-      $('#hop').click(function(){
-  $('#my-select').multiSelect('select', [ 'nashapp2','nashvdi2','nasheng1', 'nashpra1', 'nasheng2','nashsap1', 'nashprd1','nashcrm1', 'nashsap2','nasheng3','nashepas1','enashsap1','nask','nasl','corpnash1','corpnasapp1','nash','nashapp2','nashsap1']);
+ $('#hop').click(function(){
+  $('#my-select').multiSelect('select', [ '10.254.148.230','10.254.230.110','10.254.100.27', '10.254.92.120', '10.254.234.143','10.254.230.153','10.254.234.243', '10.253.8.28','10.254.230.159', '10.254.230.153','10.254.227.116','nashepas1','10.252.199.100','10.254.148.64','10.254.148.57','10.254.148.27','corpnash1','10.254.148.180']);
   return false;
 });
-
+    
 $('#durham').click(function(){
-  $('#my-select').multiSelect('select', ['nasdprb1', 'nasdprd1',  'nasdprc1', 'nasdpra1', 'nasdsap1','nasdeng2','nasdcrm1', 'nasdvdi','nasdeng2','nasdsas1', 'nasdepas1', 'nasdprb2','nasdeng3','enasdsap1']);
+  $('#my-select').multiSelect('select', ['10.104.127.65', '10.104.127.57',  '10.104.127.22', '10.104.127.26', '10.104.41.114','10.104.127.61','10.104.127.86','10.104.127.84', '10.104.127.107','10.104.127.86','10.104.58.27', 'nasdepas1', '10.104.54.104','10.104.58.41','10.104.75.100']);
   return false;
 });
 
@@ -210,6 +224,7 @@ $('#my-select').multiSelect({
     this.qs2.cache();
   }
 });
+
 
   </script>
 
