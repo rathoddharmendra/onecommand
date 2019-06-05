@@ -26,7 +26,8 @@
 </head>
 
 <body style="background-color: white !important;">
-<nav class="navbar navbar-light navbar-expand-md" style="background-color:#007db8;color:rgb(255,255,255);">
+<nav class="navbar navbar-light navbar-expand-md" style="background-color:#34ad58;color:rgb(255,255,255);">
+    <!--- color change later #007db8----->
     <div class="container-fluid"><a href="#" class="navbar-brand text-white"> <img style="height:18px ; width:120px; margin-top: -4px;" src="{%static 'images/logo2.png'  %}" alt="Dell EMC logo"></img> | ONE COMMAND</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div
             class="collapse navbar-collapse navbar-right" id="navcol-1">
@@ -51,7 +52,7 @@
       {% for key, value in Nasoutput.items %}
 
         <div class="col-md-3">
-            <div class="card a" style="background-color: lightpink;margin-bottom: 20px;box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 14px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);">
+            <div class="card a" style="background-color: #34ad58;margin-bottom: 20px;box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 14px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);">
 
                 <div class="card-body text-center" >
                   <h4 class="text-center text-black">{{ key }}</h4>
@@ -127,7 +128,7 @@
     {% for key, value in Nasoutput.items %}
       <br>
       <pre>{{ value }}</pre>
-      <span>--------------------------------------------------------------------------</span>
+      <span>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ </span>
 
     {% endfor %}
 </body>
