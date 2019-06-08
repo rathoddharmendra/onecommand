@@ -24,7 +24,8 @@ app_name = 'onecommand';
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('^$', views.landing, name='landing'),
+    url('^index', views.landing, name='landing'),
     url(r'^result/', views.result, name='result'),
+    url(r'^inventory', views.inventory, name='inventory'),
 
 ]

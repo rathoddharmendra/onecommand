@@ -30,12 +30,12 @@
 <body>
 <!-- nav bar -->
 <nav class="navbar navbar-light navbar-expand-md" style="background-color:#007db8;color:rgb(255,255,255);">
-    <div class="container-fluid"><a href="index.html" class="navbar-brand text-white"> <img style="height:18px ; width:120px; margin-top: -4px;" src="{%static 'images/logo2.png'  %}" alt="Dell EMC logo"> | ONE COMMAND</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container-fluid"><a href="" class="navbar-brand text-white"> <img style="height:18px ; width:120px; margin-top: -4px;" src="{%static 'images/dell-tech.png'  %}" alt="Dell EMC logo"> | ONE COMMAND</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div
             class="collapse navbar-collapse navbar-right" id="navcol-1">
              <ul class="nav navbar-nav ml-auto">
                 <li role="presentation" class="nav-item"><a href="#" class="nav-link active" style="color:#ffffff;">Home <i class="fa fa-home"></i></a></li>
-                <li role="presentation" class="nav-item active"><a href="#" class="nav-link" style="color:#ffffff;">Inventory <i class="fa fa-server"></i></a></li>
+                <li role="presentation" class="nav-item active"><a href="inventory.html" class="nav-link" style="color:#ffffff;">Inventory <i class="fa fa-server"></i></a></li>
                  <li role="presentation" class="nav-item active"><a href="#" class="nav-link" style="color:#ffffff;">About <i class="fa fa-info"></i></a></li>
                  <li role="presentation" class="nav-item active"><a href="#" class="nav-link" style="color:#ffffff;">Help <i class="fa fa-user"></i></a></li>
 
@@ -52,9 +52,9 @@
 
 			<h2 class="text-center text-info">Select NAS servers</h2>
 			<hr>
-      <div class="sidenav" style="text-align: center;">
-        <a id="select-all">select All |</a>
-        <a id="deselect-all">Reset |</a>
+      <div class="sidenav" style="text-align: center; color: #666666;">
+        <a id="select-all">Select All |</a>
+        <a href="." id="reset">Reset |</a>
         <a id="hop">Hopkinton |</a>
         <a id="international">International |</a>
         <a id="durham">Durham</a>
@@ -63,7 +63,7 @@
         <div class="col-md-12">
             <!--Multi-select form -->
             <form action="/result/" method="post" name="form1">
-                {% csrf_token %}				
+                {% csrf_token %}
               <select id='my-select' name="nasservers" multiple='multiple'>
 
                     <option value='10.28.176.30'>nasegca2</option>
@@ -110,7 +110,7 @@
                     <option value='10.104.127.61'>nasdsap1</option>
                     <option value='10.104.127.86'>nasdeng2</option>
                     <option value='10.104.127.84'>nasdcrm1</option>
-                    <option value='10.104.127.107'>nasdvdi1</option> 
+                    <option value='10.104.127.107'>nasdvdi1</option>
                     <option value='10.104.127.86'>nasdeng2</option>
                     <option value='10.104.58.27'>nasdsas1</option>
                     <!-- <option value='10.104.58.23'>nasdepas1</option> -->
@@ -135,23 +135,30 @@
 
             <div class="col-md-3">
                 <!-- Fire Button -->
-                <button type="submit" value ="submit" class="btn btn-lg btn-danger c" style="display: block !important;font-size: 15px;margin-left: 10px;">Fire <i class="fas fa-fire"></i></button>
+                <button type="submit" value ="submit" class="btn btn-lg btn-danger myButton" style="display: block !important;font-size: 15px;margin-left: 10px;">Fire <i class="fas fa-fire wobble"></i></button>
             </div>
         </div>
 
             </form>
 
         </div>
-        </div> <!-- div-row --> 
+        </div> <!-- div-row -->
     </div> <!--Form Container ends here -->
     <div class="col-md-3"></div>
-</div> 
- 
+</div>
 
+<!--
 <div class="spinner" style="display: none;">
     <img id="img-spinner" src="{%static 'images/spinner2.gif'  %}" alt="Loading"/>
 </div>
-   
+-->
+    
+<div class="d-flex justify-content-center">
+  <div class="spinner-border text-success mx-auto" role="status" style="width: 40px; height: 40px;">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
 
 </div>
 
@@ -161,6 +168,15 @@
 
 
 <script>
+$(document).ready(function(){
+    $(".spinner-border").hide();
+    $(".myButton").click(function(){
+        $('.container').fadeOut();
+        $(".spinner-border").show();
+});
+});
+    $('#reset').css('text-decoration', 'none');
+    $('#reset').css('color', '#666666');
 
 
   // run #my-select options
@@ -183,11 +199,16 @@ $('#international').click(function(){
   $('#my-select').multiSelect('select', [ '10.254.148.230','10.254.230.110','10.254.100.27', '10.254.92.120', '10.254.234.143','10.254.230.153','10.254.234.243', '10.253.8.28','10.254.230.159', '10.254.230.153','10.254.227.116','nashepas1','10.252.199.100','10.254.148.64','10.254.148.57','10.254.148.27','corpnash1','10.254.148.180']);
   return false;
 });
-    
+
 $('#durham').click(function(){
   $('#my-select').multiSelect('select', ['10.104.127.65', '10.104.127.57',  '10.104.127.22', '10.104.127.26', '10.104.41.114','10.104.127.61','10.104.127.86','10.104.127.84', '10.104.127.107','10.104.127.86','10.104.58.27', 'nasdepas1', '10.104.54.104','10.104.58.41','10.104.75.100']);
   return false;
 });
+    
+// Loader 
+
+
+
 
 $('#my-select').multiSelect({
   selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"12\"'>",

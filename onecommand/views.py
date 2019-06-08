@@ -15,6 +15,10 @@ def landing(request, template_name='onecommand/index.html'):
 
     return render(request, template_name)
 
+def inventory(request, template_name='onecommand/inventory.html'):
+
+    return render(request, template_name)
+
 
 def result(request, template_name='onecommand/card.html'):
 
