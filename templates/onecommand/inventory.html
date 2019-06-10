@@ -27,8 +27,10 @@
     </script>
 </head>
 
-<body>
+<body style="font-family: 'Open Sans', sans-serif;font-weight: 300;line-height: 1.42em;color: #A7A1AE; ">
+    
 <!-- nav bar -->
+
 <nav class="navbar navbar-light navbar-expand-md" style="background-color:#007db8;color:rgb(255,255,255);">
     <div class="container-fluid"><a href="" class="navbar-brand text-white"> <img style="height:20px ; width:80px; margin-top: -4px;object-fit: cover;" src="{%static 'images/logo6.png'  %}" alt="Dell EMC logo"> | ONE COMMAND</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div
@@ -44,18 +46,88 @@
     </div>
 </nav>
 <br>
-    <h1 style="color: navy; text-align: center"> NAS Inventory </h1>
+    
+ <style>
+     
+    
+    
+   .inventoryhead {
+    background: -webkit-linear-gradient(#007db8, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+      font-size: 3em; 
+      font-weight: 600;
+      line-height:1em;
+      text-align: center;
+      color: navy;
+       padding-bottom: 2%;
+        }
+        
+     .table {
+      border: 1px solid black;
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+      margin-bottom: 40px;
+      display: table;
+      
+}
 
-  <table class="table table-hover">
-    <thead style="color: white;background-color: navy; ">
+    .table td, .table th {
+	  padding-bottom: 1%;
+	  padding-top: 1%;
+      padding-left:1%;  
+}
+     .table th {
+      background-color: #007db8;
+     }
+     
+     .table th h1 {
+      font-weight: bold;
+	  font-size: 1.5em;
+      text-align: left;
+      color: white;
+      }
+
+.table tr:hover {
+   background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+  
+.table td:hover {
+  background-color: #add6ea;
+  color: #0e1c19;
+  font-weight: bold;
+  
+  box-shadow: #5e9dbc -1px 1px, #5e9dbc -2px 2px, #5e9dbc -3px 3px, #5e9dbc -4px 4px, #5e9dbc -5px 5px, #5e9dbc -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}     
+    
+    </style>  
+    
+<h1 class="inventoryhead"> NAS Inventory </h1>
+    
+    
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
       <tr>
-        <th>Serial</th>  
-        <th>Server Name</th>
-        <th>Server IP</th>
-        <th>Model</th>
+        <th><h1>Serial</h1></th>  
+        <th><h1>Server Name</h1></th>
+        <th><h1>Server IP</h1></th>
+        <th><h1>Model</h1></th>
       </tr>
     </thead>
+    
     <tbody>
+        
       <tr>
         <td>CKM00164100502</td>  
         <td>nasegca2</td>
@@ -69,63 +141,316 @@
         <td>NS-G8</td>  
       </tr>
     
+       <tr>
+        <td>CKM00111600154</td>  
+        <td>nasishz1</td>
+        <td>10.76.84.16</td>
+        <td>VNX5500</td>
+       </tr>
+       <tr>
+        <td>CKM00112300858</td>  
+        <td>nascncd2</td>
+        <td>10.35.79.42</td>
+        <td>VNX5500</td>  
+       </tr>
+          <tr>
+        <td>CKM00124200328</td>  
+        <td>nassisi1</td>
+        <td>10.44.2.1050</td>
+        <td>VNX5500</td>
+      </tr>
+      <tr>
+        <td>CKM00103800797</td>  
+        <td>nasinba1</td>
+        <td>10.77.142.55</td>
+        <td>VNX7500</td>  
+      </tr>      
+        <tr>
+        <td>CKM00112600394</td>  
+        <td>nasbavdi1</td>
+        <td>10.30.176.55</td>
+        <td>VNX7500</td>
+      </tr>
+      <tr>
+        <td>CKM00124500885</td>  
+        <td>nasgefr1</td>
+        <td>10.70.52.20</td>
+        <td>VNX5500</td>  
+      </tr>      
+        <tr>
+        <td>CKM00131500287</td>  
+        <td>nasjpto1</td>
+        <td>10.32.58.208</td>
+        <td>VNX5500</td>
+      </tr>
+      <tr>
+        <td>CKM00132301200</td>  
+        <td>nasukbr1</td>
+        <td>152.62.254.13</td>
+        <td>VNX5500</td>  
+      </tr>
 
-
-
-                    ''            		   
-                    ''           		   
-                    '10.76.84.16'             		  nasishz1
-                    '10.35.79.42'             		  nascncd2
-                    '10.44.2.105'             		  nassisi1
-                    '10.77.142.55'            		  nasinba1
-                    '10.30.176.55'            		  nasbavdi1
-                    '10.70.52.20'             		  nasgefr1
-                    '10.32.58.208'            		  nasjpto1
-                    '152.62.254.13'           		   nasukbr1
-                    '10.22.222.28'            		  nasfrpa1
-                    '10.84.80.13'             		  nascnsh1
-                    '10.32.87.140'            		  nascnbe1
-                    '10.77.0.13'              		  nasrusp1
-                    '10.35.254.11'            		  nasausy1
-
-                    '10.254.148.230'                 nashapp2
-                    '10.254.230.110'                 nashvdi2
-                    '10.254.100.27'                  nasheng1
-                    '10.254.92.120'                  nashpra1
-                    '10.254.234.143'                 nasheng2
-                    '10.254.230.153'                 nashsap1
-                    '10.254.234.243'                 nashpra2
-                    '10.253.8.28'                	 nashprd1
-                    '10.254.230.159'                 nashcrm1
-                    '10.254.230.153'                 nashsap1
-                    '10.254.227.116'                 nasheng3
-                    '10.254.238.92'                  nashepas1
-                    '10.252.199.100'                 enashsap1
-                    '10.254.148.64'                  nask
-                    '10.254.148.57'                  nasl
-                    '10.254.148.27'                  nash
-                    '10.254.148.200'                 corpnash1
-                    '10.254.148.180'                 corpnasapp1
-
-
-                    '10.104.127.65'                  nasdprb1
-                    '10.104.127.57'                  nasdprd1
-                    '10.104.127.22'                  nasdprc1
-                    '10.104.127.26'                  nasdpra1
-                    '10.104.41.114'                  nasdpra2
-                    '10.104.127.61'                  nasdsap1
-                    '10.104.127.86'                  nasdeng2
-                    '10.104.127.84'                  nasdcrm1
-                    '10.104.127.107'                  nasdvdi1
-                    '10.104.127.86'                  nasdeng2
-                    '10.104.58.27'                  nasdsas1
-                    '10.104.58.23'                  nasdepas1
-                    '10.104.54.104'                  nasdprb2
-                    '10.104.58.41'                  nasdeng3
-                    '10.104.75.100'                  enasdsap1
-
+        <tr>
+        <td>CKM00131801255 </td>  
+        <td>nasfrpa1</td>
+        <td>10.70.16.13</td>
+        <td>VNX5500</td>  
+      </tr>
+        
+        <tr>
+        <td>CKM00141601235</td>  
+        <td>NASCNSH1</td>
+        <td>10.32.129.136</td>
+        <td>VNX5500</td>  
+      </tr>
+        
+        <tr>
+        <td>CKM00132302228</td>  
+        <td>NASCNBE1</td>
+        <td>10.32.87.140</td>
+        <td>VNX5500</td>  
+      </tr>
+        
+        <tr>
+        <td>CKM00141501318</td>  
+        <td>NASRUSP1</td>
+        <td>10.77.0.13</td>
+        <td>VNX5500</td>  
+      </tr>
+        
+        <tr>
+        <td>CKM00140300271</td>  
+        <td>NASAUSY1</td>
+        <td> 10.35.254.11</td>
+        <td>VNX5500</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00100900112</td>  
+        <td>nashapp2</td>
+        <td>10.254.148.230</td>
+        <td>NS-G8</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00102501248</td>  
+        <td>nashvdi2</td>
+        <td>10.254.230.110</td>
+        <td>NS-G8</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00102801064</td>  
+        <td>nasheng1</td>
+        <td>10.254.100.27</td>
+        <td>NS-G8</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00113200468</td>  
+        <td>nashpra1</td>
+        <td>10.254.92.120</td>
+        <td>NS-G8</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00114104652</td>  
+        <td>nasheng2</td>
+        <td>10.254.234.143</td>
+        <td>VNX7500</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00104501830</td>  
+        <td>nashsap1</td>
+        <td>10.254.230.153</td>
+        <td>VG-8</td>  
+      </tr>
+        
+        <tr>
+        <td>CKM000000</td>  
+        <td>nashpra2</td>
+        <td>10.254.234.243</td>
+        <td>VNX8000</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00113804681</td>  
+        <td>nashprd1</td>
+        <td>10.253.8.28</td>
+        <td>VNX7500</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00113200490</td>  
+        <td>nashcrm1</td>
+        <td>10.254.230.159</td>
+        <td>VG-8</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00144533474</td>  
+        <td>nasheng3</td>
+        <td>10.254.227.116</td>
+        <td>VNX8000</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00131411071</td>  
+        <td>nashepas1</td>
+        <td>10.254.238.92</td>
+        <td>VNX5700</td>  
+      </tr>
+        
+        <tr>
+        <td>HK1EN172600007</td>  
+        <td>enashsap1</td>
+        <td>10.252.199.100</td>
+        <td>eNAS</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00052607075</td>  
+        <td>nask</td>
+        <td>10.254.148.64</td>
+        <td>NS704G</td>  
+      </tr>
+        
+             <tr>
+        <td>APM00052608113</td>  
+        <td>nasl</td>
+        <td>10.254.148.57</td>
+        <td>NS704G</td>  
+      </tr>
+        
+         <tr>
+        <td>APM00052605566</td>  
+        <td>nash</td>
+        <td>10.254.148.27</td>
+        <td>NS704G</td> 
+        </tr> 
+        
+        <tr>
+        <td>APM00094300482</td>  
+        <td>corpnash1</td>
+        <td>10.254.148.200</td>
+        <td>NS-G8</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00101600783</td>  
+        <td>corpnasapp1</td>
+        <td>10.254.148.180</td>
+        <td>NS-G8</td>  
+      </tr>
+        
+        <tr>
+        <td>APM00110900650</td>  
+        <td>nasdprb1</td>
+        <td>10.104.127.65</td>
+        <td>NS-960</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00110600249</td>  
+        <td>nasdprd1</td>
+        <td>10.104.127.57</td>
+        <td>NS-960</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00103600517</td>  
+        <td>nasdprc1</td>
+        <td>10.104.127.22</td>
+        <td>NS-960</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00103600491</td>  
+        <td>nasdpra1</td>
+        <td>10.104.127.26</td>
+        <td>NS-G8</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00000</td>  
+        <td>nasdpra2</td>
+        <td>10.104.41.114</td>
+        <td>VNX8000</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00104501836</td>  
+        <td>nasdsap1</td>
+        <td>10.104.127.61</td>
+        <td>VG-8</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00113807322</td>  
+        <td>nasdeng2</td>
+        <td>10.104.127.86</td>
+        <td>VNX7500</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00113102305</td>  
+        <td>nasdcrm1</td>
+        <td>10.104.127.84</td>
+        <td>VG-8</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00114104420</td>  
+        <td>nasdvdi1</td>
+        <td>10.104.127.107</td>
+        <td>VG-8</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00130934352</td>  
+        <td>nasdsas1</td>
+        <td>10.104.58.27</td>
+        <td>VNX7500</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00132513946</td>  
+        <td>nasdepas1</td>
+        <td>10.104.58.23</td>
+        <td>VNX5700</td> 
+        </tr> 
+        
+          <tr>
+        <td>APM00134501283</td>  
+        <td>nasdprb2</td>
+        <td>10.104.54.104</td>
+        <td>VNX7500</td> 
+        </tr> 
+        
+            <tr>
+        <td>APM00144608176</td>  
+        <td>nasdeng3</td>
+        <td>10.104.58.41</td>
+        <td>VNX8000</td> 
+        </tr> 
+        
+            <tr>
+        <td>HK1EN170200004</td>  
+        <td>enasdsap1</td>
+        <td>10.104.75.100</td>
+        <td>eNAS</td> 
+        </tr>         
+        
             </tbody>
         </table>
     
+   
+
+ <div class="footer col text-center text-white py-1" style="background-color:#007db8; position: fixed; left: 0; bottom: 0;"> DellEMC Corporation &#174; </div> 
+
+
+
 </body>
-</html>
+</html> 
+
