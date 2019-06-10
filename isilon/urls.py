@@ -1,4 +1,4 @@
-"""onecommand URL Configuration
+"""Isilon App URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -18,18 +18,12 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
-from .import views
-from onecommand import views
-from isilon import views as isilon_views
 
-app_name = 'onecommand';
+
+app_name = 'isilon';
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url('^index', views.landing, name='landing'),
-    url(r'^result/', views.result, name='result'),
-    url(r'^inventory', views.inventory, name='inventory'),
     url(r'^$', views.landing, name='landing'),
-    url(r'^isilon/',isilon_views.landing),
-
+    url(r'^isi_inventory', views.inventory,),
+    url(r'^result$', views.result, name='result'),
 ]

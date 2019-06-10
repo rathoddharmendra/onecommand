@@ -32,10 +32,10 @@
 <nav class="navbar navbar-light navbar-expand-md" style="background-color:#007db8;color:rgb(255,255,255);">
     <div class="container-fluid"><a href="" class="navbar-brand text-white"> <img style="height:20px ; width:80px; margin-top: -4px;object-fit: cover;" src="{%static 'images/logo6.png'  %}" alt="Dell EMC logo"> | ONE COMMAND</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div
-            class="collapse navbar-collapse navbar-right" id="navcol-1"> <h4 class="ml-auto">VNX Series <i class="fa fa-server"></i></h4>
+            class="collapse navbar-collapse navbar-right" id="navcol-1">
              <ul class="nav navbar-nav ml-auto">
                 <li role="presentation" class="nav-item"><a href="#" class="nav-link active" style="color:#ffffff;">Home <i class="fa fa-home"></i></a></li>
-                <li role="presentation" class="nav-item active"><a href="inventory.html" class="nav-link" style="color:#ffffff;">Inventory <i class="fa fa-server"></i></a></li>
+                <li role="presentation" class="nav-item active"><a href="isi_inventory.html" class="nav-link" style="color:#ffffff;">Inventory <i class="fa fa-server"></i></a></li>
                  <li role="presentation" class="nav-item active"><a href="#" class="nav-link" style="color:#ffffff;">About <i class="fa fa-info"></i></a></li>
                  <li role="presentation" class="nav-item active"><a href="#" class="nav-link" style="color:#ffffff;">Help <i class="fa fa-user"></i></a></li>
 
@@ -53,11 +53,9 @@
 			<h2 class="text-center text-info">Select NAS servers</h2>
 			<hr>
       <div class="sidenav" style="text-align: center; color: #666666;">
-        <a id="select-all">Select All |</a>
-        <a href="." id="reset">Reset |</a>
-        <a id="hop">Hopkinton |</a>
-        <a id="international">International |</a>
-        <a id="durham">Durham</a>
+          <button type="button" class="btn btn-success" id="select-all">Select All </button>
+            <button type="button" class="btn btn-success " id="deselect-all"> Reset </button>
+
       </div>
       <br/>
         <div class="col-md-12">
@@ -66,57 +64,16 @@
                 {% csrf_token %}
               <select id='my-select' name="nasservers" multiple='multiple'>
 
-                    <option value='10.28.176.30'>nasegca2</option>
-                    <option value='10.73.243.131'>nascrk3</option>
-                    <option value='10.76.84.16'>nasishz1</option>
-                    <option value='10.35.79.42'>nascncd2</option>
-                    <option value='10.44.2.105'>nassisi1</option>
-                    <option value='10.77.142.55'>nasinba1</option>
-                    <option value='10.30.176.55'>nasbavdi1</option>
-                    <option value='10.70.52.20'>nasgefr1</option>
-                    <option value='10.32.58.208'>nasjpto1</option>
-                    <option value='152.62.254.13'>nasukbr1</option>
-                    <option value='10.22.222.28'>nasfrpa1</option>
-                    <!-- <option value='10.84.80.13'>nascnsh1</option> -->
-                    <option value='10.32.87.140'>nascnbe1</option>
-                    <option value='10.77.0.13'>nasrusp1</option>
-                    <!-- <option value='10.35.254.11'>nasausy1</option> -->
-
-                    <option value='10.254.148.230'>nashapp2</option>
-                    <option value='10.254.230.110'>nashvdi2</option>
-                    <option value='10.254.100.27'>nasheng1</option>
-                    <option value='10.254.92.120'>nashpra1</option>
-                    <option value='10.254.234.143'>nasheng2</option>
-                    <option value='10.254.230.153'>nashsap1</option>
-                    <option value='10.254.234.243'>nashpra2</option>
-                    <option value='10.253.8.28'>nashprd1</option>
-                    <option value='10.254.230.159'>nashcrm1</option>
-                    <option value='10.254.230.153'>nashsap1</option>
-                    <option value='10.254.227.116'>nasheng3</option>
-                    <!-- <option value='10.254.238.92'>nashepas1</option> -->
-                    <option value='10.252.199.100'>enashsap1</option>
-                    <option value='10.254.148.64'>nask</option>
-                    <option value='10.254.148.57'>nasl</option>
-                    <option value='10.254.148.27'>nash</option>
-                    <!--<option value='10.254.148.200'>corpnash1</option>-->
-                    <option value='10.254.148.180'>corpnasapp1</option>
-
-
-                    <option value='10.104.127.65'>nasdprb1</option>
-                    <option value='10.104.127.57'>nasdprd1</option>
-                    <option value='10.104.127.22'>nasdprc1</option>
-                    <option value='10.104.127.26'>nasdpra1</option>
-                    <option value='10.104.41.114'>nasdpra2</option>
-                    <option value='10.104.127.61'>nasdsap1</option>
-                    <option value='10.104.127.86'>nasdeng2</option>
-                    <option value='10.104.127.84'>nasdcrm1</option>
-                    <option value='10.104.127.107'>nasdvdi1</option>
-                    <option value='10.104.127.86'>nasdeng2</option>
-                    <option value='10.104.58.27'>nasdsas1</option>
-                    <!-- <option value='10.104.58.23'>nasdepas1</option> -->
-                    <option value='10.104.54.104'>nasdprb2</option>
-                    <option value='10.104.58.41'>nasdeng3</option>
-                    <option value='10.104.75.100'>enasdsap1</option>
+                    <option value='10.104.127.109'>sondur1</option>
+                    <option value='10.104.127.126'>sondur2</option>
+                    <option value='10.104.70.52'>sondur4</option>
+                    <option value='10.104.70.40'>sondbdl1</option>
+                    <option value='10.104.60.34'>sondgst1</option>
+                    <option value='10.254.234.154'>sonhop1</option>
+                    <option value='10.254.234.178'>sonhop2</option>
+                    <option value='10.253.8.128'>sonhop3</option>
+                    <option value='10.254.241.158'>sonhop4</option>
+                    <option value='10.252.218.11'>sonhopbdlp1</option>
                 </select>
 
         </div>
@@ -189,22 +146,8 @@ $(document).ready(function(){
   $('#my-select').multiSelect('deselect_all');
   return false;
   });
-$('#international').click(function(){
-  $('#my-select').multiSelect('select', ['10.28.176.30', '10.73.243.131', '10.76.84.16', '10.35.79.42', '10.44.2.105', '10.77.142.55','10.30.176.55', '10.70.52.20', '10.32.58.208', '152.62.254.13', '10.22.222.28', '10.32.87.140', '10.77.0.13','nascnsh1','nasausy1']);
-  return false;
-});
 
 
- $('#hop').click(function(){
-  $('#my-select').multiSelect('select', [ '10.254.148.230','10.254.230.110','10.254.100.27', '10.254.92.120', '10.254.234.143','10.254.230.153','10.254.234.243', '10.253.8.28','10.254.230.159', '10.254.230.153','10.254.227.116','nashepas1','10.252.199.100','10.254.148.64','10.254.148.57','10.254.148.27','corpnash1','10.254.148.180']);
-  return false;
-});
-
-$('#durham').click(function(){
-  $('#my-select').multiSelect('select', ['10.104.127.65', '10.104.127.57',  '10.104.127.22', '10.104.127.26', '10.104.41.114','10.104.127.61','10.104.127.86','10.104.127.84', '10.104.127.107','10.104.127.86','10.104.58.27', 'nasdepas1', '10.104.54.104','10.104.58.41','10.104.75.100']);
-  return false;
-});
-    
 // Loader 
 
 
