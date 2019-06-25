@@ -1,0 +1,16 @@
+activedirectory==0.14
+certifi==2018.4.16
+cryptography==2.3.1
+decorator==4.3.0
+Django==1.11.21
+Jinja2==2.10
+ldap3==2.5
+parallel-ssh==1.8.0.post1
+paramiko==2.4.1
+python-dateutil==2.7.3
+requests==2.19.1
+ssh2-python==0.15.0.post9
+urllib3==1.23
+wget==3.2
+
+

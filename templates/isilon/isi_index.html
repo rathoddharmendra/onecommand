@@ -32,7 +32,7 @@
 <nav class="navbar navbar-light navbar-expand-md" style="background-color:#007db8;color:rgb(255,255,255);">
     <div class="container-fluid"><a href="" class="navbar-brand text-white"> <img style="height:20px ; width:80px; margin-top: -4px;object-fit: cover;" src="{%static 'images/logo6.png'  %}" alt="Dell EMC logo"> | ONE COMMAND</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div
-            class="collapse navbar-collapse navbar-right" id="navcol-1">
+            class="collapse navbar-collapse navbar-right" id="navcol-1"> <h4 class="ml-auto">Isilon Servers <i class="fa fa-server"></i></h4>
              <ul class="nav navbar-nav ml-auto">
                 <li role="presentation" class="nav-item"><a href="#" class="nav-link active" style="color:#ffffff;">Home <i class="fa fa-home"></i></a></li>
                 <li role="presentation" class="nav-item active"><a href="isi_inventory.html" class="nav-link" style="color:#ffffff;">Inventory <i class="fa fa-server"></i></a></li>
@@ -53,8 +53,9 @@
 			<h2 class="text-center text-info">Select NAS servers</h2>
 			<hr>
       <div class="sidenav" style="text-align: center; color: #666666;">
-          <button type="button" class="btn btn-success" id="select-all">Select All </button>
-            <button type="button" class="btn btn-success " id="deselect-all"> Reset </button>
+        
+        <a id="select-all">Select All </a><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</span>
+        <a href="isi_index.html" id="reset">Reset</a>
 
       </div>
       <br/>
@@ -109,7 +110,7 @@
     <img id="img-spinner" src="{%static 'images/spinner2.gif'  %}" alt="Loading"/>
 </div>
 -->
-    
+
 <div class="d-flex justify-content-center">
   <div class="spinner-border text-success mx-auto" role="status" style="width: 40px; height: 40px;">
     <span class="sr-only">Loading...</span>
@@ -148,7 +149,7 @@ $(document).ready(function(){
   });
 
 
-// Loader 
+// Loader
 
 
 

@@ -37,13 +37,12 @@ def result(request, template_name='isilon/isi_card.html'):
         foput.append('\n'.join(oput[0]))
         print(foput[0])
         ssh.close()
-        
+
     hosts = []
     t1 = time.time()*1000
     if request.method == "POST":
-        #hosts = request.POST.getlist('nasservers')
-        hosts = ['sondur1-1']
-        command = request.POST.get('command')        
+        hosts = request.POST.getlist('nasservers')
+        command = request.POST.get('command')
         Nasoutput = {}
         ##########Actual block of code############
         for host in hosts:
@@ -79,4 +78,3 @@ def result(request, template_name='isilon/isi_card.html'):
         print("Total time taken: ", t2 - t1, " ms")
 
     return render(request,template_name,{'Nasoutput' : Nasoutput})
-

@@ -1,0 +1,11 @@
+---
+applications:
+
+- name: onecommand
+  instances: 1
+  memory: 128M
+  command: "python manage.py runserver"
+  buildpacks:
+    - dicf_python_buildpack_1629_cflinuxfs3
+
+
