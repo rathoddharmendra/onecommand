@@ -2,7 +2,7 @@ activedirectory==0.14
 certifi==2018.4.16
 cryptography==2.3.1
 decorator==4.3.0
-Django==1.11.21
+Django==1.11.22
 Jinja2==2.10
 ldap3==2.5
 parallel-ssh==1.8.0.post1
